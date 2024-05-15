@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Engine.Controllers; //WPFUI tem referencia ao Engine Project
 
 namespace WPFUI
 {
@@ -16,9 +17,16 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameSessionController gameSession;
         public MainWindow()
         {
             InitializeComponent();
+
+            gameSession = new GameSessionController();
+
+            DataContext = gameSession;
+            // DataContext e uma built-in propriedade do xmal
+            // a mainWindow tem a variavel dataContext guardando o objeto GameSessionController que tem a propriedade CurrentPlayer
         }
     }
 }
