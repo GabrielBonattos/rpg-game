@@ -27,6 +27,24 @@ namespace WPFUI
             DataContext = gameSession;
             // DataContext e uma built-in propriedade do xmal
             // a mainWindow tem a variavel dataContext guardando o objeto GameSessionController que tem a propriedade CurrentPlayer
+
+        }
+
+        private void onClick_MoveNorth(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveNorth();
+        }
+        private void onClick_MoveWest(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveWest();
+        }
+        private void onClick_MoveEast(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveEast();
+        }
+        private void onClick_MoveSouth(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveSouth();
         }
     }
 }

@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
         Title="Game" Height="768" Width="1024">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -72,6 +75,43 @@
             
         </Grid>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="SandyBrown"></Label>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="LemonChiffon"></Label>
+        <!--<Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="LemonChiffon"></Label>-->
+        <!-- Grid para Combat/Movement Controls -->
+        <Grid Grid.Row="2" Grid.Column="1" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+                <!-- Botoes de combate-->
+                <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Width="80px" Margin="5px" Padding="10px">Attack</Button>
+                <Button Grid.Column="1" Width="80px" Margin="5px">Use Potion</Button>
+                </Grid>
+            
+            <!-- Botoes laterais norte, sul, leste e oste-->
+                <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="1" Width="65" Height="25" Margin="10" Content="North" Click="onClick_MoveNorth" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}" />
+                <Button Grid.Row="1" Grid.Column="0" Width="65" Height="25" Margin="10" Content="West" Click="onClick_MoveWest" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}" />
+                <Button Grid.Row="1" Grid.Column="2" Width="65" Height="25" Margin="10" Content="East" Click="onClick_MoveEast" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}" />
+                <Button Grid.Row="2" Grid.Column="1" Width="65" Height="25" Margin="10" Content="South" Click="onClick_MoveSouth" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -43,5 +43,10 @@ namespace Engine.Models
             return null;
             */
         }
+
+        internal object LocationAt(int xCoordinate, int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
